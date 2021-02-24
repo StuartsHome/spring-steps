@@ -1,1 +1,1 @@
-# A Jave Spring Boot Application
+# A Java Spring Boot Application
