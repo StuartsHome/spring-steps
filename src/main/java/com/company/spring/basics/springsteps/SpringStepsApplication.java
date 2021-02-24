@@ -8,11 +8,15 @@ public class SpringStepsApplication {
 
 	public static void main(String[] args) {
 
-		BinarySearchImpl binarySearch = new BinarySearchImpl();
+		BinarySearchImpl binarySearch = new BinarySearchImpl(new BubbleSortAlgorithm());
+		BinarySearchImpl binarySearch2 = new BinarySearchImpl(new QuickSortAlgorithm());
 		int result = binarySearch.binarySearch(new int[] {12, 4, 6}, 3);
-		System.out.println(result);
+		int result2 = binarySearch2.binarySearch(new int[] {12, 4, 6}, 3);
 
-		SpringApplication.run(SpringStepsApplication.class, args);
+		System.out.println(result);
+		System.out.println(result2);
+
+		//SpringApplication.run(SpringStepsApplication.class, args);
 	}
 
 }
