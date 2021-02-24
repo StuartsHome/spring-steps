@@ -1,13 +1,32 @@
 package com.company.spring.basics.springsteps;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.config.ConfigurableBeanFactory;
+import org.springframework.context.annotation.Scope;
+import org.springframework.stereotype.Component;
+
+@Component
+@Scope(ConfigurableBeanFactory.SCOPE_PROTOTYPE)
 public class BinarySearchImpl {
 
+    @Autowired // the BinarySearchImp depends on the SortAlgorithm // autowiring by type
     private SortAlgorithm sortAlgorithm;
 
+    // private SortAlgorithm bubbleSortAlgorithm // autowiring by type and instance name variable
+
+
+    // This is constructor injection
     public BinarySearchImpl(SortAlgorithm sortAlgorithm) {
         super();
         this.sortAlgorithm = sortAlgorithm;
     }
+
+    // You could also use setter injection
+    /*
+    public void setSortAlgorithm(SortAlgorithm sortAlgorithm) {
+        this.sortAlgorithm = sortAlgorithm;
+    }
+    */
 
     public int binarySearch(int[] numbers, int target) {
         /*
