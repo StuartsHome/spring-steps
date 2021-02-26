@@ -1,9 +1,11 @@
-package com.company.spring.basics.springsteps;
+package com.company.spring.basics.springsteps.basic;
 
+import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Component;
 
 @Component
-public class BubbleSortAlgorithm implements SortAlgorithm{
+@Primary
+public class QuickSortAlgorithm implements SortAlgorithm{
     public int[] sort(int[] numbers) { //takes an array of ints and returns array of ints
         // The logic of the BubbleSortAlgorithm can be changed here - without affecting 
         // the binarySearchImpl

@@ -1,4 +1,4 @@
-package com.company.spring.basics.springsteps;
+package com.company.spring.basics.springsteps.basic;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.config.ConfigurableBeanFactory;
