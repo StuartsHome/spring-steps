@@ -1,5 +1,8 @@
 package com.company.spring.basics.springsteps;
 
+import com.company.spring.basics.springsteps.basic.BinarySearchImpl;
+import com.company.spring.basics.springsteps.basic.BubbleSortAlgorithm;
+
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
@@ -21,16 +24,10 @@ public class SpringStepsApplication {
 
 		
 		BinarySearchImpl binarySearch = new BinarySearchImpl(new BubbleSortAlgorithm());
-		BinarySearchImpl binarySearch2 = new BinarySearchImpl(new QuickSortAlgorithm());
 		int result = binarySearch.binarySearch(new int[] {12, 4, 6}, 3);
-		int result1 = binarySearch2.binarySearch(new int[] {12, 4, 6}, 3);
-
 		// SpringApplication.run(SpringStepsApplication.class, args);
 		ApplicationContext applicationContext = SpringApplication.run(SpringStepsApplication.class, args);
-		BinarySearchImpl binarySearch3 = applicationContext.getBean(BinarySearchImpl.class);
-		int result2 = binarySearch3.binarySearch(new int[] {12, 4, 6}, 3);
 		System.out.println(result);
-		System.out.println(result2);
 
 
 	}
