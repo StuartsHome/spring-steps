@@ -2,18 +2,19 @@ package com.company.spring.basics.springsteps;
 
 import com.company.spring.basics.springsteps.basic.BinarySearchImpl;
 import com.company.spring.basics.springsteps.basic.BubbleSortAlgorithm;
+import com.company.spring.basics.springsteps.xml.XMLPersonDAO;
 
 // import org.springframework.boot.SpringApplication;
 // import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 //@SpringBootApplication
 @Configuration
 @ComponentScan("com.company.spring.basics.springsteps")
-public class SpringStepsApplication {
+public class SpringStepsXMLContextApplication {
 
 
 	// What are the beans spring has to manage?
@@ -27,21 +28,11 @@ public class SpringStepsApplication {
 	public static void main(String[] args) {
 
 
-		try (AnnotationConfigApplicationContext applicationContext = new AnnotationConfigApplicationContext(SpringStepsApplication.class)) {
-			BinarySearchImpl binarySearch = new BinarySearchImpl(new BubbleSortAlgorithm());
-			int result = binarySearch.binarySearch(new int[] {12, 4, 6}, 3);
-			
-			//SpringApplication.run(SpringStepsApplication.class, args);
-			System.out.println(result);
+		try (ClassPathXmlApplicationContext applicationContext = new ClassPathXmlApplicationContext("applicationContext.xml")) {
+			XMLPersonDAO personDAO = applicationContext.getBean(XMLPersonDAO.class);
+			System.out.println(personDAO);
+			System.out.println(personDAO.getXMLJdbcConnection());
 		}
 	}
 
 }
-
-/*
-Notes:
-1. Beings are instances of the object. In this case, instances of BinarySearchImpl
-2. Application Context manages the beans - get the beans from the application context
-3. There are three options for injection - Constructor injection and Setter injection
-
-*/
